@@ -66,9 +66,9 @@ dsh plugin --profile web add <deep-whale-day-night-theme 路径>
 
 ## 界面预览
 
-![Deep Whale day theme 界面预览](screenshots/theme-day.png)
+![DeepSeek Harness Codex 实际使用效果](screenshots/real-view.png)
 
-> 预览图为 headless 渲染（全新浏览器会话），展示 deep-whale 主题的浅色模式皮肤观感；实际使用时包含你的会话、插件激活状态与完整功能。
+> 实际使用截图（含 deep-whale 主题、Codex 风格界面与完整功能）。另附 headless 渲染的主题皮肤预览：[theme-day.png](screenshots/theme-day.png)。
 
 ## 项目结构
 
