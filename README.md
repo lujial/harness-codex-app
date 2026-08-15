@@ -5,6 +5,7 @@
 - **Electron 壳**（`main.js`）：把 `http://127.0.0.1:3080` 包装成无浏览器装饰的原生窗口
 - **零依赖启动**（`launch-app.bat`）：Edge/Chrome `--app` 模式独立窗口
 - **动态界面插件**（`codex-plugin/`）：注册到 Harness 的 `conversation` / `sidebar.workspaces` 槽位，提供 Codex 风格中间栏（会话头部、模型选择、Plan/Auto 切换、消息流、Composer）与左侧任务列表
+- **额度查询插件**（`codex-plugin/balance-plugin/`）：在设置中新增"额度查询"页，查询 DeepSeek 账户余额（subprocess + node fetch 实现，附带 deep-whale 主题侧边栏遮挡修复）
 - **主题集成**：可选集成 [deep-whale-day-night-theme](#attribution-引用与许可) 鲸鱼娘昼夜主题
 
 > 原理说明：DSH 的前端本身就是 Web 渲染的（Codex 界面是构建在浏览器槽位系统上的动态插件），因此"独立应用"的务实形态是**桌面壳** —— 用原生窗口加载本机服务，而不是在浏览器标签页里使用。本项目提供两种壳：Electron（真正独立进程）与 Chromium `--app` 模式（零依赖）。
