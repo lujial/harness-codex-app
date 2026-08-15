@@ -1,0 +1,25 @@
+# dependencies
+node_modules/
+
+# build output
+dist/
+build/
+
+# logs and runtime state
+logs/
+dsh.log
+dsh.err.log
+dsh.pid
+
+# user assets (original images, local background/icon sources)
+*.png.bak
+file_000000008c5482308b72a1c4d0367ceb.png
+file_00000000dd148211b2fa94250c3a4bdd.png
+
+# editor / OS
+.DS_Store
+Thumbs.db
+*.swp
+
+# check scratch
+.codex-check/
