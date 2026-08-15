@@ -64,15 +64,27 @@ dsh plugin --profile web add <deep-whale-day-night-theme 路径>
 
 安装后重启 Harness 服务，页面右上角主题按钮选择 **"鲸鱼娘昼夜工坊"**。
 
+## 界面预览
+
+![Deep Whale day theme 界面预览](screenshots/theme-day.png)
+
+> 预览图为 headless 渲染（全新浏览器会话），展示 deep-whale 主题的浅色模式皮肤观感；实际使用时包含你的会话、插件激活状态与完整功能。
+
 ## 项目结构
 
 ```text
 codex-app/
-├── main.js              Electron 壳
-├── package.json         依赖与打包配置（electron-builder）
-├── launch-app.bat       零依赖独立窗口启动脚本
-├── codex-plugin/        Codex 风格界面动态插件（Host + Client 源码）
-├── start-dsh.ps1        后台运行 Harness 服务的脚本（可选）
+├── main.js                    Electron 壳
+├── package.json               依赖与打包配置（electron-builder）
+├── launch-app.bat             零依赖独立窗口启动脚本
+├── codex-plugin/              Codex 风格界面动态插件（Host + Client 源码）
+│   ├── client.js              中间栏 Codex 风格界面（conversation / sidebar.workspaces）
+│   ├── host.js                模型 / Plan RPC + 背景图路由
+│   └── balance-plugin/        DeepSeek 额度查询插件（设置页 + subprocess fetch）
+│       ├── client.js          额度查询页 + 侧边栏遮挡修复 CSS
+│       └── host.js            余额查询 RPC（subprocess + node fetch）
+├── screenshots/               界面预览图
+├── start-dsh.ps1              后台运行 Harness 服务的脚本（可选）
 └── README.md
 ```
 
