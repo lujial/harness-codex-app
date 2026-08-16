@@ -513,10 +513,8 @@ window.__ModuleLoader__.load({
         })
       }
 
-      slots.inject('conversation', () => slots.register(
-        { name: 'conversation', priority: -1 },
-        (props) => React.createElement(CodexApp, props)))
-
+      // 注意：conversation 槽位已移除——对话界面恢复 DSH 原生（deep-whale 主题美化），
+      // 不再用 Codex 自绘界面替换。仅保留侧边栏 Codex 风格任务列表。
       slots.inject('sidebar.workspaces', () => slots.register(
         { name: 'sidebar.workspaces', priority: -1 },
         (props) => React.createElement(CodexSidebar, props)))
