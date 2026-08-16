@@ -13,8 +13,8 @@ window.__ModuleLoader__.load({
     const React = require('react')
 
     const CSS = `
-.cx-root{display:flex;flex-direction:column;height:100%;min-height:0;background:linear-gradient(180deg,rgba(14,14,20,.45),rgba(14,14,20,.6)),url('/codex-bg.png') center/cover no-repeat fixed,var(--dsw-alias-bg-base);color:var(--dsw-alias-label-primary)}
-.cx-header{display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--dsw-alias-border-l1);flex:none;background:var(--dsw-alias-bg-base)}
+.cx-root{display:flex;flex-direction:column;height:100%;min-height:0;background:transparent;color:var(--dsw-alias-label-primary)}
+.cx-header{display:flex;align-items:center;gap:10px;padding:10px 18px;border-bottom:1px solid var(--dsw-alias-border-l1);flex:none;background:transparent}
 .cx-title{font-size:14px;font-weight:600;color:var(--dsw-alias-label-primary);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0;flex:1}
 .cx-dot{width:8px;height:8px;border-radius:50%;flex:none;background:var(--dsw-alias-label-secondary)}
 .cx-dot-run{background:var(--dsw-alias-state-success-primary);animation:cx-pulse 1.2s ease-in-out infinite}
@@ -33,7 +33,7 @@ window.__ModuleLoader__.load({
 .cx-avatar{width:26px;height:26px;border-radius:50%;background:var(--dsw-alias-brand-primary);color:#fff;font-size:11px;display:flex;align-items:center;justify-content:center;flex:none;margin-top:2px}
 .cx-bubble{max-width:78%;border-radius:12px;padding:8px 12px;font-size:13px;line-height:1.6;overflow-wrap:break-word;min-width:0}
 .cx-bubble-user{background:var(--dsw-alias-brand-primary);color:#fff;border-top-right-radius:4px;white-space:pre-wrap}
-.cx-bubble-assistant{background:var(--dsw-alias-bg-layer-1);border:1px solid var(--dsw-alias-border-l1);border-top-left-radius:4px}
+.cx-bubble-assistant{background:rgba(0,0,0,.16);border:1px solid var(--dsw-alias-border-l1);border-top-left-radius:4px}
 .cx-bubble p{margin:0 0 8px}
 .cx-bubble p:last-child{margin-bottom:0}
 .cx-bubble h1,.cx-bubble h2,.cx-bubble h3,.cx-bubble h4{margin:10px 0 6px;font-weight:600;line-height:1.3}
@@ -53,9 +53,9 @@ window.__ModuleLoader__.load({
 .cx-err{font-size:12px;color:var(--dsw-alias-state-error-primary);text-align:center;padding:4px 0}
 .cx-caret{display:inline-block;width:7px;height:14px;background:var(--dsw-alias-label-primary);vertical-align:text-bottom;margin-left:2px;animation:cx-blink 1s step-end infinite}
 @keyframes cx-blink{50%{opacity:0}}
-.cx-composer{flex:none;padding:10px 18px 14px;border-top:1px solid var(--dsw-alias-border-l1)}
+.cx-composer{flex:none;padding:10px 18px 14px;border-top:1px solid var(--dsw-alias-border-l1);background:transparent}
 .cx-composer-inner{max-width:820px;margin:0 auto}
-.cx-composer-box{border:1px solid var(--dsw-alias-border-l2);border-radius:14px;background:var(--dsw-alias-bg-layer-1);padding:10px 12px}
+.cx-composer-box{border:1px solid var(--dsw-alias-border-l2);border-radius:14px;background:rgba(0,0,0,.18);padding:10px 12px}
 .cx-textarea{width:100%;border:none;outline:none;resize:none;background:transparent;color:var(--dsw-alias-label-primary);font-size:14px;line-height:1.6;font-family:inherit;min-height:44px;max-height:180px}
 .cx-textarea::placeholder{color:var(--dsw-alias-label-secondary)}
 .cx-composer-foot{display:flex;align-items:center;gap:8px;margin-top:8px}
@@ -79,7 +79,7 @@ window.__ModuleLoader__.load({
 .cx-hero-ws-item:hover{border-color:var(--dsw-alias-brand-primary)}
 .cx-hero-ws-title{font-size:13px;font-weight:600}
 .cx-hero-ws-path{font-size:11px;color:var(--dsw-alias-label-secondary);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
-.cx-side{display:flex;flex-direction:column;height:100%;min-height:0;background:var(--dsw-alias-bg-layer-1);border-right:1px solid var(--dsw-alias-border-l1)}
+.cx-side{display:flex;flex-direction:column;height:100%;min-height:0;background:transparent;border-right:1px solid var(--dsw-alias-border-l1)}
 .cx-side-head{display:flex;align-items:center;gap:8px;padding:14px 16px 10px;font-weight:700;font-size:15px;flex:none}
 .cx-side-logo{color:var(--dsw-alias-brand-primary)}
 .cx-side-new{margin:0 12px 10px;flex:none}
@@ -94,7 +94,7 @@ window.__ModuleLoader__.load({
 .cx-side-item-title{font-size:13px;font-weight:500;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;min-width:0}
 .cx-side-item-time{font-size:11px;color:var(--dsw-alias-label-secondary);padding-left:13px}
 .cx-side-empty{font-size:12px;color:var(--dsw-alias-label-secondary);text-align:center;padding:20px 8px}
-.cx-side-rail{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 0;height:100%;box-sizing:border-box;background:var(--dsw-alias-bg-layer-1);border-right:1px solid var(--dsw-alias-border-l1)}
+.cx-side-rail{display:flex;flex-direction:column;align-items:center;gap:8px;padding:12px 0;height:100%;box-sizing:border-box;background:transparent;border-right:1px solid var(--dsw-alias-border-l1)}
 .cx-rail-btn{width:32px;height:32px;border:none;background:none;color:var(--dsw-alias-label-primary);font-size:16px;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center}
 .cx-rail-btn:hover{background:var(--dsw-alias-bg-layer-2)}
 `
