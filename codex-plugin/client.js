@@ -479,11 +479,11 @@ return {
     }
 
     slots.inject('conversation', () => slots.register(
-      { name: 'conversation' },
+      { name: 'conversation', priority: -1 },
       (props) => React.createElement(CodexApp, props)))
 
     slots.inject('sidebar.workspaces', () => slots.register(
-      { name: 'sidebar.workspaces' },
+      { name: 'sidebar.workspaces', priority: -1 },
       (props) => React.createElement(CodexSidebar, props)))
   },
 }

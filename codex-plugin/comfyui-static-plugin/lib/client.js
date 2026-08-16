@@ -58,6 +58,32 @@ window.__ModuleLoader__.load({
 .bc-k{font-size:12px;color:var(--dsw-alias-label-secondary)}
 .bc-v{font-size:14px;font-weight:600}
 .bc-ok{color:var(--dsw-alias-state-success-primary)}
+/* === 修复：deep-whale 主题侧边栏遮挡 ===
+   注意：
+   1. 绝不修改 mascot/companion（人物）的任何样式（位置/透明度/层级）——
+      主题自己控制昼夜切换与定位，任何覆盖都会破坏它。
+   2. 绝不添加命中 mascot 的侧边栏内容层级规则（主题原版 :not() 已排除 mascot，
+      我们自己写时必须同样排除，否则 mascot 会被改成 position:relative 而错位）。
+   这里只处理真正遮挡选项的四角边框与底部飘带。 */
+/* 四角边框装饰：置于内容之下 + 半透明，不再盖住选项 */
+body[data-dsh-maid-atelier] [data-skin-chrome='sidebar-corners'] {
+  z-index:0 !important;
+  pointer-events:none !important;
+  opacity:.6 !important;
+}
+/* 底部飘带恢复正常高度，避免挤压设置区 */
+body[data-dsh-maid-atelier] [data-maid-sidebar-footer] {
+  flex:0 0 auto !important;
+  min-height:0 !important;
+  padding:8px 12px !important;
+  z-index:auto !important;
+}
+/* 设置区与底部操作区保证在最上层可点可见（只作用于设置区本身，不影响人物） */
+body[data-dsh-maid-atelier] [data-slot='sidebar.settings'],
+body[data-dsh-maid-atelier] [data-slot='sidebar.footer.action'] {
+  z-index:3 !important;
+  position:relative !important;
+}
 `
 
     // CSS 注入（与主题 bundle 相同的 style 标签约定，可被 client-modules 统计与清理）
