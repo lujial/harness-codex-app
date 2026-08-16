@@ -7,6 +7,7 @@
 - **动态界面插件**（`codex-plugin/`）：注册到 Harness 的 `conversation` / `sidebar.workspaces` 槽位，提供 Codex 风格中间栏（会话头部、模型选择、Plan/Auto 切换、消息流、Composer）与左侧任务列表
 - **额度查询插件**（`codex-plugin/balance-plugin/`）：在设置中新增"额度查询"页，查询 DeepSeek 账户余额（subprocess + node fetch 实现，附带 deep-whale 主题侧边栏遮挡修复）
 - **AI 生图插件**（`codex-plugin/img-gen-plugin/`）：接入本地 ComfyUI 生图 —— 设置页提供"AI 生图"表单（workflow / 模型 / 提示词 / 参数，生成结果对话内嵌显示）与"ComfyUI"完整界面嵌入（支持全屏浮层）
+- **静态后台插件**（`codex-plugin/comfyui-static-plugin/`）：把 AI 生图 / ComfyUI 嵌入 / 额度查询做成 **profile 静态 bundle**（`dsh plugin --profile web add` 安装），服务启动自动加载、页面刷新自动注入 —— **关闭页面后功能仍在**，无需每次 `cordis_run`
 - **主题集成**：可选集成 [deep-whale-day-night-theme](#attribution-引用与许可) 鲸鱼娘昼夜主题
 
 > 原理说明：DSH 的前端本身就是 Web 渲染的（Codex 界面是构建在浏览器槽位系统上的动态插件），因此"独立应用"的务实形态是**桌面壳** —— 用原生窗口加载本机服务，而不是在浏览器标签页里使用。本项目提供两种壳：Electron（真正独立进程）与 Chromium `--app` 模式（零依赖）。
@@ -88,8 +89,14 @@ codex-app/
 │       ├── client.js          AI 生图表单页 / ComfyUI 嵌入页 / 全屏浮层
 │       ├── host.js            imggen / imgModels RPC + /gen-img 图片路由
 │       └── README.md          功能、架构与沙箱注意事项
+│   └── comfyui-static-plugin/ 静态后台插件（profile bundle，重启/刷新不丢失）
+│       ├── lib/index.js       Host：/comfy-api/* 路由（生图/模型/余额）+ /gen-img
+│       ├── lib/client.js      Client：__ModuleLoader__.load bundle（设置页 + 全屏）
+│       ├── cordis.patch.yml   组合补丁：插入 comfyui-static 行
+│       └── package.json       dsh.bundle / dsh.client 声明
 ├── screenshots/               界面预览图
 ├── start-dsh.ps1              后台运行 Harness 服务的脚本（可选）
+├── restart-dsh.ps1            重启 Harness 服务（安装静态插件后生效）
 └── README.md
 ```
 

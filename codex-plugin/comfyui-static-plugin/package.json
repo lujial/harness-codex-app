@@ -1,0 +1,27 @@
+{
+  "name": "@dsh-external/dsh-plugin-comfyui",
+  "description": "Persistent ComfyUI AI image generation for the dsh web GUI: settings sections (AI 生图 / ComfyUI / 额度查询) plus a fullscreen overlay, loaded as a static profile bundle so it survives page reloads and service restarts.",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "lib/index.js",
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./lib/client.js",
+    "./package.json": "./package.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "inject": [
+        "@deepseek-ai/dsh-client-runtime",
+        "@deepseek-ai/dsh-client-ui-settings",
+        "@deepseek-ai/dsh-client-ui-layout"
+      ],
+      "platform": "web"
+    }
+  },
+  "license": "MIT"
+}
